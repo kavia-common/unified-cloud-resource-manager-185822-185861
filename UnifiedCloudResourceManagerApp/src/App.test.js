@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
+test("renders dashboard heading", async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // AppRoutes lazy-loads Overview which renders "Dashboard"
+  const heading = await screen.findByText(/dashboard/i);
+  expect(heading).toBeInTheDocument();
 });
