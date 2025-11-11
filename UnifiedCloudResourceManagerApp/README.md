@@ -1,82 +1,27 @@
-# Lightweight React Template for KAVIA
+# Unified Cloud Resource Manager (React + Supabase)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This app provides a unified dashboard to manage AWS, Azure, and GCP resources. It uses Supabase for authentication, data, and realtime.
 
-## Features
+Quick start:
+- Copy .env.example to .env and set REACT_APP_SUPABASE_URL and REACT_APP_SUPABASE_ANON_KEY
+- npm install
+- npm start
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+Routes:
+- /auth/* (signin, signup, magic-link)
+- /, /cloud/aws, /cloud/azure, /cloud/gcp
+- /cloud/:provider/resources/:id
+- /teams, /audit, /settings
 
-## Getting Started
+Feature flags:
+- Build-time env REACT_APP_FEATURE_FLAGS, can be JSON or comma-separated "k:v"
+- Database table "feature_flags" with columns: (id uuid pk, key text unique, enabled boolean, description text)
 
-In the project directory, you can run:
+Provider SDKs:
+- This repo ships with mock providers only. Real SDKs must be integrated securely via serverless/edge functions. Do not embed secrets.
 
-### `npm start`
+Testing:
+- Cypress configured with cypress.config.js and example specs in cypress/e2e
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Documentation placeholder:
+- A complete setup, schema, and architecture guide will be provided in the next step.
